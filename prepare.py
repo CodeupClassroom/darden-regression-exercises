@@ -94,3 +94,13 @@ def prep_titanic(cached=True):
     train, validate, test = impute_mean_age(train, validate, test)
     
     return train, validate, test
+
+def prep_mall_data(df):
+    '''
+    Takes the acquired mall data, does data prep, and returns
+    train, test, and validate data splits.
+    '''
+    df['is_female'] = (df.gender == 'Female').astype('int')
+    train_and_validate, test = train_test_split(df, test_size=.15, random_state=123)
+    train, validate = train_test_split(train_and_validate, test_size=.15, random_state=123)
+    return train, test, validate    
