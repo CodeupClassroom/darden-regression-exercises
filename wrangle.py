@@ -11,6 +11,9 @@ from env import host, user, password
 def get_db_url(db_name):
     return f"mysql+pymysql://{user}:{password}@{host}/{db_name}"
 
+def get_mall_customer_data():
+    query = 'SELECT * FROM customers'
+    return pd.read_sql(query, get_db_url('mall_customers'))
 
 def get_data_from_sql():
     query = """
