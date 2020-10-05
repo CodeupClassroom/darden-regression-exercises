@@ -1,5 +1,6 @@
 from sklearn.model_selection import train_test_split
 import sklearn.preprocessing
+from sklearn.preprocessing import MinMaxScaler
 import pandas as pd
 import numpy as np
 
